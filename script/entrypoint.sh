@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 : "${AIRFLOW_HOME:="/usr/local/airflow"}"
 
 export \
