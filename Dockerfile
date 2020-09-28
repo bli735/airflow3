@@ -1,7 +1,7 @@
 FROM python:3.7-slim
 
 
-RUN sudo apt-get update && apt-get install build-essential
+RUN apt-get update && apt-get install build-essential
 RUN pip install apache-airflow[aws]==1.10.12 --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-1.10.12/constraints-3.7.txt"
 
 
