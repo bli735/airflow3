@@ -22,6 +22,8 @@ RUN pip install -r requirements.txt
 COPY src src
 COPY dags airflow/dags
 
+RUN chown -R airflow
+
 EXPOSE 8080
 
 airflow initdb
