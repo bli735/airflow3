@@ -17,12 +17,12 @@ COPY dags ${AIRFLOW_USER_HOME}/dags
 COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 
 
-RUN chown -R airflow: ${AIRFLOW_USER_HOME}
+RUN chmod 0755 -R ${AIRFLOW_USER_HOME}
 
 
 EXPOSE 8080
 
-USER airflow
+
 WORKDIR ${AIRFLOW_USER_HOME}
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["webserver"]
