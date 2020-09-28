@@ -14,10 +14,9 @@ COPY src src
 COPY dags airflow/dags
 COPY script/entrypoint.sh /entrypoint.sh
 
-RUN chown -R airflow: ${AIRFLOW_USER_HOME}
-
 
 EXPOSE 8080
+
 
 WORKDIR ${AIRFLOW_USER_HOME}
 ENTRYPOINT ["/entrypoint.sh"]
