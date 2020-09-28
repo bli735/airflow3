@@ -17,7 +17,7 @@ COPY dags ${AIRFLOW_USER_HOME}/dags
 COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 
 
-RUN chmod 0755 -R ${AIRFLOW_USER_HOME}
+RUN chmod -R 777 ${AIRFLOW_USER_HOME}
 
 
 EXPOSE 8080
