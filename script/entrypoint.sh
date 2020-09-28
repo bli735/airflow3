@@ -6,7 +6,13 @@
 export \
   AIRFLOW_HOME \
 
-airflow initdb
-airflow scheduler
-exec airflow webserver
-
+case "$1" initdb
+  webserver)
+    airflow initdb
+    airflow scheduler
+    fi
+    exec airflow webserver
+    ;;
+  *)
+    exec "$@"
+    ;;
