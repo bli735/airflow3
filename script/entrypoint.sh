@@ -6,7 +6,7 @@
 export \
   AIRFLOW_HOME \
 
-case "$1" initdb
+case "$1" in
   webserver)
     airflow initdb
     airflow scheduler
