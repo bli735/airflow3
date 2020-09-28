@@ -6,7 +6,7 @@
 export \
   AIRFLOW_HOME \
 
-  airflow initdb
-  airflow scheduler
-  airflow webserver
+airflow initdb
+airflow scheduler
+exec airflow webserver
 
