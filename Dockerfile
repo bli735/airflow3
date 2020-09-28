@@ -1,6 +1,5 @@
 FROM python:3.7-slim
 
-ENV PATH "$PATH:~/.local/bin"
 
 RUN sudo apt-get install -yqq --no-install-recommends \
         freetds-bin \
@@ -19,14 +18,17 @@ RUN sudo apt-get install -yqq --no-install-recommends \
 
 RUN pip install apache-airflow[aws]==1.10.12
 
+
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+
 COPY src src
 COPY dags airflow/dags
+COPY script/entrypoint.sh /entrypoint.sh
+
 
 EXPOSE 8080
 
-airflow initdb
-airflow webserver
-airflow scheduler
+
+ENTRYPOINT ["/entrypoint.sh"]
