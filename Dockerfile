@@ -10,9 +10,9 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 
-COPY src src
-COPY dags airflow/dags
 COPY script/entrypoint.sh /entrypoint.sh
+COPY src ${AIRFLOW_USER_HOME}/src
+COPY dags ${AIRFLOW_USER_HOME}/dags
 
 
 EXPOSE 8080
