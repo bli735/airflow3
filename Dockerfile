@@ -1,22 +1,8 @@
 FROM python:3.7-slim
 
 
-RUN sudo apt-get install -yqq --no-install-recommends \
-        freetds-bin \
-        krb5-user \
-        ldap-utils \
-        libffi6 \
-        libsasl2-2 \
-        libsasl2-modules \
-        libssl1.1 \
-        locales  \
-        lsb-release \
-        sasl2-bin \
-        sqlite3 \
-        unixodbc
-
-
-RUN pip install apache-airflow[aws]==1.10.12
+RUN sudo apt-get update && apt-get install build-essential
+RUN pip install apache-airflow[aws]==1.10.12 --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-1.10.12/constraints-3.7.txt"
 
 
 COPY requirements.txt .
