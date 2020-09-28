@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 : "${AIRFLOW_HOME:="/usr/local/airflow"}"
@@ -10,7 +10,6 @@ case "$1" in
   webserver)
     airflow initdb
     airflow scheduler
-    fi
     exec airflow webserver
     ;;
   *)
