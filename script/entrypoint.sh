@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-
 : "${AIRFLOW_HOME:="/usr/local/airflow"}"
 : "${AIRFLOW__CORE__EXECUTOR:=${EXECUTOR:-Sequential}Executor}"
 
 export \
   AIRFLOW_HOME \
   AIRFLOW__CORE__EXECUTOR \
+
 
 case "$1" in
   webserver)
