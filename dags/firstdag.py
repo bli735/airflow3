@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.operators import PythonOperator
 from datetime import timedelta, datetime
-from src import get_sensor_data
+from src.get_sensor_data import get_sensor_data
 
 default_args = {
     'owner': 'ubuntu',
@@ -18,4 +18,4 @@ with DAG(
         schedule_interval = timedelta(minutes = 5),
         catchup = False) as dag:
         
-    t1 = PythonOperator(get_sensor_data.py)
+    t1 = PythonOperator(get_sensor_data)
