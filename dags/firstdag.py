@@ -1,7 +1,6 @@
 from airflow import DAG
 from airflow.operators import PythonOperator
-from datetime import timedelta
-from datetime import datetime
+from datetime import timedelta, datetime
 
 default_args = {
     'owner': 'ubuntu',
@@ -12,7 +11,7 @@ default_args = {
 }
 
 with DAG(
-        dag_id = 'PurpleAir Sensors',
+        dag_id = 'purpleair_sensors',
         description = "Request PurpleAir sensor data",
         default_args = default_args,
         schedule_interval = timedelta(minutes = 5),
