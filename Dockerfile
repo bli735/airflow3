@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 COPY script/entrypoint.sh /entrypoint.sh
 COPY src ${AIRFLOW_USER_HOME}/src
 COPY dags ${AIRFLOW_USER_HOME}/dags
-#COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
+COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 
 
 EXPOSE 8080
