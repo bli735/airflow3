@@ -5,7 +5,7 @@ ENV AIRFLOW_HOME=${AIRFLOW_USER_HOME}
 
 RUN apt-get update \
     && apt-get install -yqq build-essential \
-    && useradd -ms /bin/bash -d ${AIRFLOW_USER_HOME} airflow \
+    && useradd -ms /bin/bash -d ${AIRFLOW_USER_HOME} airflow
 RUN pip install apache-airflow[aws]==1.10.12 --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-1.10.12/constraints-3.7.txt"
 
 
