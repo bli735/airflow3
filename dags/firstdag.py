@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.operators import PythonOperator
 from datetime import timedelta, datetime
-from ..src.get_sensor_data import get_sensor_data
+from get_sensor_data import get_sensor_data
 
 default_args = {
     'owner': 'ubuntu',
