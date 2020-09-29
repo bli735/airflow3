@@ -22,7 +22,7 @@ COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 
 
 # create data directory to save files
-RUN MKDIR ${AIRFLOW_USER_HOME}/data
+RUN mkdir ${AIRFLOW_USER_HOME}/data
 
 
 RUN chown -R airflow: ${AIRFLOW_USER_HOME}
