@@ -6,7 +6,7 @@ from get_sensor_data import get_sensor_data
 default_args = {
     'owner': 'ubuntu',
     'depends_on_past': False,
-    'start_date': datetime(2020, 9, 22),
+    'start_date': datetime(2020, 9, 28),
     'retries': 3,
     'retry_delay': timedelta(seconds = 30)
 }
