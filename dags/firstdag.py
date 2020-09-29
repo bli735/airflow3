@@ -1,5 +1,5 @@
 from airflow import DAG
-from airflow.operators import PythonOperator
+from airflow.operators import PythonOperator, DummyOperator
 from datetime import timedelta, datetime
 from get_sensor_data import get_sensor_data
 
@@ -17,5 +17,8 @@ with DAG(
         default_args = default_args,
         schedule_interval = timedelta(minutes = 5),
         catchup = False) as dag:
-        
-    t1 = PythonOperator(get_sensor_data)
+
+            t1 = DummyOperator(task_id='dummy_task')   
+            t2 = PythonOperator(task_id='purpleair_api', python_callable=get_sensor_data)
+
+            t1 >> t2
