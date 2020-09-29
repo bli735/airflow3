@@ -4,6 +4,9 @@ FROM python:3.7-slim
 ARG AIRFLOW_USER_HOME=/usr/local/airflow
 ENV AIRFLOW_HOME=${AIRFLOW_USER_HOME}
 
+# python
+ENV PYTHONPATH "${PYTHONPATH}:/usr/local/airflow/src"
+
 # update packages, create user airflow, install airflow
 RUN apt-get update \
     && apt-get install -yqq build-essential \
