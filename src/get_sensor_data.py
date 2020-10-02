@@ -25,7 +25,7 @@ def get_sensor_data():
     r = requests.get(url)
 
 
-    log error responses
+    #log error responses
     try: 
         r.raise_for_status()
         
