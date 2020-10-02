@@ -38,7 +38,8 @@ def get_sensor_data():
             json.dump(r.json(), zipfile)
 
     except requests.exceptions.HTTPError as e:
-        logger.info(f'Request failed: {e}')
+        print('job failed')
+        #logger.info(f'Request failed: {e}')
 
 
 if __name__ == "__main__":
