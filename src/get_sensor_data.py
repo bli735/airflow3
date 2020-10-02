@@ -19,27 +19,27 @@ def get_sensor_data():
     #                     ])
 
     # initiate logger
-    logger = logging.getLogger(__name__)
+    # logger = logging.getLogger(__name__)
 
 
     r = requests.get(url)
 
 
-    # log error responses
+    log error responses
     try: 
         r.raise_for_status()
+        
+        # set filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        fname = f'purpleair_{timestamp}'
+
+        # write file to local storage
+        with gzip.open(f'data/{fname}.gz', 'wt', encoding="utf-8") as zipfile:
+            json.dump(r.json(), zipfile)
+
     except requests.exceptions.HTTPError as e:
         logger.info(f'Request failed: {e}')
 
-
-    # set filename
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    fname = f'purpleair_{timestamp}'
-
-
-    # write file to local storage
-    with gzip.open(f'data/{fname}.gz', 'wt', encoding="utf-8") as zipfile:
-        json.dump(r.json(), zipfile)
 
 if __name__ == "__main__":
     get_sensor_data()
