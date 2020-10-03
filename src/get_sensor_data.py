@@ -21,7 +21,7 @@ def get_sensor_data():
     # initiate logger
     # logger = logging.getLogger(__name__)
 
-
+    
     r = requests.get(url)
 
 
@@ -30,12 +30,13 @@ def get_sensor_data():
         # r.raise_for_status()
         
     # set filename
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    fname = f'purpleair_{timestamp}'
+    if r.status_code == 200:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        fname = f'purpleair_{timestamp}'
 
-    # write file to local storage
-    with gzip.open(f'data/{fname}.gz', 'wt', encoding="utf-8") as zipfile:
-        json.dump(r.json(), zipfile)
+        # write file to local storage
+        with gzip.open(f'data/{fname}.gz', 'wt', encoding="utf-8") as zipfile:
+            json.dump(r.json(), zipfile)
 
     # except requests.exceptions.HTTPError as e:
     #     print('job failed')
