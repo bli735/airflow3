@@ -1,5 +1,6 @@
 from airflow import DAG
-from airflow.operators import PythonOperator, DummyOperator
+import airflow.operators.dummy_operator
+import airflow.operators.python_operator
 from datetime import timedelta, datetime
 from get_sensor_data import get_sensor_data
 
