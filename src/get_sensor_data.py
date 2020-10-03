@@ -26,24 +26,24 @@ def get_sensor_data():
 
 
     #log error responses
-    try: 
-        r.raise_for_status()
+    # try: 
+        # r.raise_for_status()
         
-        # set filename
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        fname = f'purpleair_{timestamp}'
+    # set filename
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    fname = f'purpleair_{timestamp}'
 
-        # write file to local storage
-        with gzip.open(f'data/{fname}.gz', 'wt', encoding="utf-8") as zipfile:
-            json.dump(r.json(), zipfile)
+    # write file to local storage
+    with gzip.open(f'data/{fname}.gz', 'wt', encoding="utf-8") as zipfile:
+        json.dump(r.json(), zipfile)
 
-    except requests.exceptions.HTTPError as e:
-        print('job failed')
+    # except requests.exceptions.HTTPError as e:
+    #     print('job failed')
         #logger.info(f'Request failed: {e}')
 
 
-if __name__ == "__main__":
-    get_sensor_data()
+# if __name__ == "__main__":
+#     get_sensor_data()
 
     
 
